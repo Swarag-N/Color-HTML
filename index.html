@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Color HTML</title>
+    <link rel="stylesheet" href="./public/style.css">
+  </head>
+  <body>
+    <div class="container grid">
+      <form>
+        <h2>HTML</h2>
+        <textarea name="html" id="html"></textarea>
+        <h2>CSS</h2>
+        <textarea name="css" id="css"></textarea>
+      </form>
+    </div>
+    <div class="output grid">
+        <iframe id="outIframe" frameborder="1"></iframe>
+    </div>
+    <script>(function(){
+        const iframe = document.getElementById("outIframe");
+        iframeDocument = iframe.contentWindow.document 
+        let body = iframeDocument.getElementsByTagName('body')[0];
+        let head = iframeDocument.getElementsByTagName('head')[0].innerHTML = "<style></style>";
+        let styleTag = iframeDocument.getElementsByTagName('style')[0];
+
+        // document.getElementsByTagName("textarea").addEventListener("keyup",(evt)=>{
+        //     console.log(evt.target.id)
+        // })
+
+        document.getElementById("html").addEventListener("keyup",(event)=>{
+            body.innerHTML = event.target.value
+        })
+
+        document.getElementById("css").addEventListener("keyup",(event)=>{
+            styleTag.innerHTML = event.target.value
+        })
+
+    }())</script>
+  </body>
+</html>
