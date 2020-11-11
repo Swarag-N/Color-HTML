@@ -1,23 +1,21 @@
-// Using From DragDropJS
-// let htmlHandler = document.getElementById("html");
-// let cssHandler = document.getElementById("css");
+let b = iframeDocument.getElementsByTagName("body")[0];
 
-// let htmlEditor = CodeMirror.fromTextArea(document.getElementById("html"), {
-//   mode: "htmlmixed",
-//   lineNumbers: true,
-//   smartIndent:true,
-//   autofocus:true,
-//   theme:"material-darker"
-// });
-// htmlEditor.setSize(null, 250);
-// htmlEditor.save()
+function downloadImg() {
+  console.log("Download???");
+  html2canvas(b).then((canvasElm) => {
+    let downloadFormat = document.getElementById('downloadFormat').value;
+    let imageType = "image/"+downloadFormat;
+    let link = document.getElementById('link');
+    let fileName = `ColorHTML-${getDateFormatName()}.`+downloadFormat;
+    link.setAttribute('download', fileName);
+    link.setAttribute('href', canvasElm.toDataURL(imageType).replace(imageType, "image/octet-stream"));
+    link.click((evt)=>{
+      evt.preventDefault()
+    });
+  });
+}
 
-// let cssEditor = CodeMirror.fromTextArea(document.getElementById("css"), {
-//   lineNumbers: true,
-//   smartIndent:true,
-//   theme:"material-darker",
-//   mode:"css"
-// });
-// cssEditor.setSize(null,250);
-// cssEditor.save()
-
+function getDateFormatName(){
+  let d = new Date();
+  return `${d.getFullYear()}-${d.getMonth()+1}-${d.getDate()}-${d.getTime()}`
+}
