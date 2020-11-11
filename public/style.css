@@ -36,3 +36,9 @@ iframe {
   height: 95%;
   border: none;
 }
+
+.options{
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
