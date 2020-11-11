@@ -1,15 +1,23 @@
+// Using From DragDropJS
+// let htmlHandler = document.getElementById("html");
+// let cssHandler = document.getElementById("css");
 
-function colorizeRecursively(domEle) {
-  if (domEle.childElementCount) {
-    for (i of domEle.children) {
-      console.log(i);
-          i.style.backgroundColor =
-          "#" + (((1 << 24) * Math.random()) | 0).toString(16);
-          colorizeRecursively(i);
-        }
-  }
-}
+// let htmlEditor = CodeMirror.fromTextArea(document.getElementById("html"), {
+//   mode: "htmlmixed",
+//   lineNumbers: true,
+//   smartIndent:true,
+//   autofocus:true,
+//   theme:"material-darker"
+// });
+// htmlEditor.setSize(null, 250);
+// htmlEditor.save()
 
-var c = document.body
-colorizeRecursively(c)
+// let cssEditor = CodeMirror.fromTextArea(document.getElementById("css"), {
+//   lineNumbers: true,
+//   smartIndent:true,
+//   theme:"material-darker",
+//   mode:"css"
+// });
+// cssEditor.setSize(null,250);
+// cssEditor.save()
 

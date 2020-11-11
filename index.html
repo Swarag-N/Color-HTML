@@ -4,39 +4,84 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Color HTML</title>
-    <link rel="stylesheet" href="./public/style.css">
+    <link rel="stylesheet" href="./public/style.css" />
+    <link rel="stylesheet" href="lib/material-darker.css" />
+    <link rel="stylesheet" href="lib/codemirror.css" />
+    <script src="lib/codemirror.js"></script>
+    <script src="mode/css/css.js"></script>
+    <script src="mode/htmlmixed/htmlmixed.js"></script>
+    <script src="mode/javascript/javascript.js"></script>
+    <script src="mode/xml/xml.js"></script>
   </head>
   <body>
     <div class="container grid">
       <form>
         <h2>HTML</h2>
-        <textarea name="html" id="html"></textarea>
+        <textarea name="html" id="html"><p>Skip Head Tag,Alter To see Changes</p></textarea>
         <h2>CSS</h2>
         <textarea name="css" id="css"></textarea>
       </form>
+      <center>
+        <div id="status"></div>
+        <button onclick="colorizeIframe()">Colorize</button>
+      </center>
     </div>
     <div class="output grid">
-        <iframe id="outIframe" frameborder="1"></iframe>
+      <iframe id="outIframe" frameborder="1"></iframe>
     </div>
-    <script>(function(){
+    <script>
+      (function () {
         const iframe = document.getElementById("outIframe");
-        iframeDocument = iframe.contentWindow.document 
-        let body = iframeDocument.getElementsByTagName('body')[0];
-        let head = iframeDocument.getElementsByTagName('head')[0].innerHTML = "<style></style>";
-        let styleTag = iframeDocument.getElementsByTagName('style')[0];
+        iframeDocument = iframe.contentWindow.document;
+        let body = iframeDocument.getElementsByTagName("body")[0];
+        let head = (iframeDocument.getElementsByTagName("head")[0].innerHTML =
+          "<style></style>");
+        let styleTag = iframeDocument.getElementsByTagName("style")[0];
 
-        // document.getElementsByTagName("textarea").addEventListener("keyup",(evt)=>{
-        //     console.log(evt.target.id)
-        // })
+        let htmlEditor = CodeMirror.fromTextArea(
+          document.getElementById("html"),
+          {
+            mode: "htmlmixed",
+            htmlMode:true,
+            lineNumbers: true,
+            smartIndent: true,
+            autofocus: true,
+            theme: "material-darker",
+          }
+        );
+        htmlEditor.setSize(null, 250);
+        htmlEditor.on("change", (event) => {
+          body.innerHTML = event.getValue();
+        });
+        htmlEditor.save();
 
-        document.getElementById("html").addEventListener("keyup",(event)=>{
-            body.innerHTML = event.target.value
-        })
+        let cssEditor = CodeMirror.fromTextArea(
+          document.getElementById("css"),
+          {
+            lineNumbers: true,
+            smartIndent: true,
+            theme: "material-darker",
+            mode: "css",
+          }
+        );
+        cssEditor.setSize(null, 250);
+        cssEditor.on("change", (event) => {
+          styleTag.innerHTML = event.getValue();
+        });
+        cssEditor.save();
 
-        document.getElementById("css").addEventListener("keyup",(event)=>{
-            styleTag.innerHTML = event.target.value
-        })
+        // document.getElementById("html").addEventListener("change", (event) => {
+        //   body.innerHTML = event.target.value;
+        //   console.log(event.target.value);
+        // });
 
-    }())</script>
+        // document.getElementById("css").addEventListener("keyup", (event) => {
+        //   styleTag.innerHTML = event.target.value;
+        // });
+      })();
+    </script>
+    <script src="public/scripts/colorize.js"></script>
+    <script src="public/scripts/dragDrop.js"></script>
+    <!-- <script src="index.js"></script> -->
   </body>
 </html>
