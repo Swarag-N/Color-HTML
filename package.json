@@ -1,0 +1,43 @@
+{
+  "name": "color-html",
+  "version": "1.0.0",
+  "description": "ColorizesHTML Pages",
+  "main": "index.js",
+  "private": true,
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "lint-fix": "npm run lint -- --fix",
+    "start": "webpack",
+    "config": "webpack --config webpack.config.js",
+    "dev":"webpack --config webpack.dev.js",
+    "prod":"webpack --config webpack.prod.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Swarag-N/Color-HTML.git"
+  },
+  "author": "Swarag Narayanasetty",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Swarag-N/Color-HTML/issues"
+  },
+  "homepage": "https://github.com/Swarag-N/Color-HTML#readme",
+  "devDependencies": {
+    "css-loader": "^5.0.1",
+    "eslint": "^7.13.0",
+    "eslint-config-google": "^0.14.0",
+    "html-webpack-plugin": "^4.5.0",
+    "style-loader": "^2.0.0",
+    "webpack": "^5.4.0",
+    "webpack-cli": "^4.2.0",
+    "webpack-merge": "^5.3.0"
+  },
+  "dependencies": {
+    "codemirror": "^5.58.2",
+    "html2canvas": "^1.0.0-rc.7"
+  }
+}

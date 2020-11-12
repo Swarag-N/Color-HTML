@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Color HTML</title>
+    <script src="../lib/html2canvas.js"></script>
+  </head>
+  <body>
+    <div class="container grid">
+      <form>
+        <h2>HTML</h2>
+        <textarea name="html" id="html">
+<p>Skip Head Tag,Alter To see Changes</p></textarea
+        >
+        <h2>CSS</h2>
+        <textarea name="css" id="css"></textarea>
+      </form>
+      <center>
+        <div id="status"></div>
+        <div class="options">
+          <button onclick="colorizeIframe()">Colorize</button>
+          <input type="color" name="hColor" id="nColor" />
+          <input type="checkbox" name="hue" id="hue">
+          <label for="hue">Select Hue</label>
+
+          <button onclick="downloadDom()">Download</button>
+          <a id="link"></a>
+          <select id="downloadFormat">
+            <option value="png">png</option>
+            <option value="jpeg">jpeg</option>
+            <option value="bmp">bmp</option>
+          </select>
+        </div>
+      </center>
+    </div>
+    <div class="output grid">
+      <iframe id="outIframe" frameborder="1"></iframe>
+    </div>
+  </body>
+</html>

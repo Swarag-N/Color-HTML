@@ -29,12 +29,18 @@ function hexToRgb(hex) {
     null;
 }
 
-function colorizeIframe() {
-  const body = iframeDocument.getElementsByTagName('body')[0];
-  if (document.getElementById('hue').checked) {
-    const hex = document.getElementById('nColor').value;
-    colorizeHueRecursively(body, hexToRgb(hex));
-  } else {
-    colorizeRecursively(body);
-  }
-}
+// function colorizeIframe() {
+//   let body = iframeDocument.getElementsByTagName("body")[0];
+//   if (document.getElementById("hue").checked) {
+//     let hex = document.getElementById("nColor").value;
+//     colorizeHueRecursively(body, hexToRgb(hex));
+//   } else {
+//     colorizeRecursively(body);
+//   }
+// }
+
+module.exports={
+  colorizeHueRecursively,
+  colorizeRecursively,
+  hexToRgb,
+};
