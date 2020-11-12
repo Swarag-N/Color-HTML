@@ -1,4 +1,3 @@
-/* eslint-disable require-jsdoc */
 import CodeMirror from 'codemirror/lib/codemirror.js';
 
 import 'codemirror/mode/javascript/javascript.js';
@@ -53,8 +52,11 @@ cssEditor.on('change', (event) => {
 });
 cssEditor.save();
 
+/**
+ * OnClick checks the Checkbox input to choose
+ * colorizeHueRecursively or colorizeRecursively
+ */
 function colorizeIframe() {
-  console.log('DDDDDDDDDDd');
   const body = iframeDocument.getElementsByTagName('body')[0];
   if (document.getElementById('hue').checked) {
     const hex = document.getElementById('nColor').value;
@@ -64,30 +66,4 @@ function colorizeIframe() {
   }
 }
 
-// function downloadDom() {
-//   initializeDownload(body);
-// }
-
-// function downloadImg() {
-//   console.log("Download???");
-//   html2canvas(body).then((canvasElm) => {
-//     let downloadFormat = document.getElementById('downloadFormat').value;
-//     let imageType = "image/"+downloadFormat;
-//     let link = document.getElementById('link');
-//     let fileName = `ColorHTML-${getDateFormatName()}.`+downloadFormat;
-//     link.setAttribute('download', fileName);
-//     link.setAttribute('href', canvasElm.toDataURL(imageType).replace(
-// imageType, "image/octet-stream"));
-//     link.click((evt)=>{
-//       evt.preventDefault()
-//     });
-//   });
-// }
-
-// function getDateFormatName(){
-//   let d = new Date();
-//   return `${d.getFullYear()}-${d.getMonth()+1}-${d.getDate()}-${d.getTime()}`
-// }
-
 window.colorizeIframe = colorizeIframe;
-// window.downloadDom = downloadDom;

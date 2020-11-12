@@ -5,10 +5,10 @@ const cssHandler = document.getElementById('css');
 const state = document.getElementById('status');
 
 if (typeof window.FileReader === 'undefined') {
-  state.className = 'fail';
+  state.className = 'Your Browser Doesn\'t Support';
 } else {
   state.className = 'success';
-  state.innerHTML = 'File API & FileReader available';
+  state.innerHTML = 'Drag and Drop Feature Available';
 }
 
 htmlHandler.ondragover = function() {

@@ -3,7 +3,7 @@ const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
   mode: 'development',
-  entry: {main: './src/index.js', vendor: './src/vendor.js'},
+  entry: {main: './src/index.js', vendor: './src/htmlCanvasDownloader.js'},
   output: {
     filename: '[name].[contenthash].bundle.js',
     path: path.resolve(__dirname, 'dist'),

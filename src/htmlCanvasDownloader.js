@@ -1,10 +1,8 @@
 import html2canvas from 'html2canvas/dist/html2canvas.min.js';
 
-// export class DownloadImage{
-
-// eslint-disable-next-line valid-jsdoc
 /**
- * @param {DOM Element} domEle Initialize Download
+ * Initialize Download of Rendered HTML
+ * @param {domElement} domEle DOM to Rendered
  */
 function initializeDownload(domEle) {
   html2canvas(domEle).then((canvasElm) => {
@@ -23,9 +21,10 @@ function initializeDownload(domEle) {
   });
 }
 
-// eslint-disable-next-line valid-jsdoc
+
 /**
- * @param
+ * Give a name for To Download Files
+ * @return {string} YYYY-MM-DD-000000000000
  */
 function getDateFormatName() {
   const d = new Date();
@@ -33,7 +32,9 @@ function getDateFormatName() {
 }
 
 
-// eslint-disable-next-line require-jsdoc
+/**
+ * Used to Start on onClickEvent
+ */
 function downloadDom() {
   const iframeD = document.getElementById('outIframe');
   const iframeDocument = iframeD.contentWindow.document;
