@@ -1,3 +1,4 @@
+/* eslint-disable require-jsdoc */
 import CodeMirror from 'codemirror/lib/codemirror.js';
 
 import 'codemirror/mode/javascript/javascript.js';
@@ -10,17 +11,19 @@ import 'codemirror/theme/material-darker.css';
 import 'codemirror/lib/codemirror.css';
 import './styles/style.css';
 
-import {colorizeHueRecursively, colorizeRecursively, hexToRgb} from './utility/colorize';
-import {downloadImg} from './utility/downloadImage';
+import {colorizeHueRecursively, colorizeRecursively} from './utility/colorize';
+import {hexToRgb} from './utility/colorize';
+
+// const {initializeDownload} = require('./utility/downloadImage');
+
 import './utility/dragDrop';
-// import {DownloadImage} from './utility/downloadImage'
-// import './utility/downloadImage'
+
 
 const iframeD = document.getElementById('outIframe');
 const iframeDocument = iframeD.contentWindow.document;
 const body = iframeDocument.getElementsByTagName('body')[0];
-// let head = (iframeDocument.getElementsByTagName("head")[0].innerHTML =
-// "<style></style>");
+
+
 iframeDocument.getElementsByTagName('head')[0].innerHTML = '<style></style>';
 const styleTag = iframeDocument.getElementsByTagName('style')[0];
 
@@ -61,9 +64,9 @@ function colorizeIframe() {
   }
 }
 
-function downloadDom() {
-  downloadImg(body);
-}
+// function downloadDom() {
+//   initializeDownload(body);
+// }
 
 // function downloadImg() {
 //   console.log("Download???");
@@ -73,7 +76,8 @@ function downloadDom() {
 //     let link = document.getElementById('link');
 //     let fileName = `ColorHTML-${getDateFormatName()}.`+downloadFormat;
 //     link.setAttribute('download', fileName);
-//     link.setAttribute('href', canvasElm.toDataURL(imageType).replace(imageType, "image/octet-stream"));
+//     link.setAttribute('href', canvasElm.toDataURL(imageType).replace(
+// imageType, "image/octet-stream"));
 //     link.click((evt)=>{
 //       evt.preventDefault()
 //     });
@@ -86,4 +90,4 @@ function downloadDom() {
 // }
 
 window.colorizeIframe = colorizeIframe;
-window.downloadDom = downloadDom;
+// window.downloadDom = downloadDom;
